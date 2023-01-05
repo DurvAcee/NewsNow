@@ -11,8 +11,8 @@ export class Spinner extends Component {
     //   </div>
 
     // Including Customizable gif using css-loaders
-        <div class="cssload-container">
-        <div class="cssload-speeding-wheel"></div>
+        <div className="cssload-container">
+        <div className="cssload-speeding-wheel"></div>
         </div>
     )
   }

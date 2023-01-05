@@ -19,7 +19,7 @@ export class News extends Component {
 
     constructor(){
         super();
-        console.log('constructor from News componenet');
+        // console.log('constructor from News componenet');
         this.state={
             articles: [],
             loading: false,
@@ -70,7 +70,7 @@ export class News extends Component {
   render() {
     return (
       <div className = "container my-3">
-        <h1 class="text-center" style={{margin: '20px 0px'}}>NewsMonkey - Top Headlines!</h1>
+        <h1 className="text-center" style={{margin: '20px 0px'}}>NewsMonkey - Top Headlines!</h1>
         {this.state.loading && <Spinner/>}
 
             <div className = "row">
