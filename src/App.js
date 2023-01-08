@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import Navbar from './Components/Navbar';
 import News from './Components/News';
 import {
-  HashRouter as Router,
+  BrowserRouter as Router,
   Routes,
   Route
 } from "react-router-dom";
