@@ -1,7 +1,7 @@
 import React from 'react'
 // import loading from '../Assets/loading.gif'
 import './Spinner.css'
-
+ 
 const Spinner = () => {
     return (
     // Using Local gif as an image

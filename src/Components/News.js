@@ -10,7 +10,6 @@ const News = (props) => {
     const [loading, setLoading] = useState(true)
     const [page, setPage] = useState(1)
     const [totalResults, setTotalResults] = useState(0)
-    // document.title = `NewsNow - ${this.capitalizeFirstLetter(props.category)}`;
 
     const capitalizeFirstLetter = (string) => {
         return string.charAt(0).toUpperCase() + string.slice(1);
@@ -33,28 +32,30 @@ const News = (props) => {
     }
 
     useEffect(() => {
+        document.title = `NewsNow - ${capitalizeFirstLetter(props.category)}`;
         updateNews();
+        //eslint-disable-next-line;
     }, [])
   
     const fetchMoreData = async () => {
+        const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page+1}&pageSize=${props.pageSize}`
         setPage(page+1)
-        const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`
         let data = await fetch(url)
         let parsedData = await data.json()
         setArticles(articles.concat(parsedData.articles))
         setTotalResults(parsedData.totalResults)
-
-    }
+    };
 
     return (
       <>
-        <h1 className="text-center" style={{margin: '20px 0px'}}>NewsNow - Top {capitalizeFirstLetter(props.category)} Headlines!</h1>
+        <h1 className="text-center" style={{margin: '20px 0px', marginTop: '90px'}}>NewsNow - Top {capitalizeFirstLetter(props.category)} Headlines!</h1>
         {loading && <Spinner/>}
         <InfiniteScroll
             dataLength = {articles.length}
             next = {fetchMoreData}
             hasMore = {articles.length !== totalResults}
-            loader = {<Spinner/>} >
+            loader = {<Spinner/>} 
+        >
 
                 <div className='container'>
                     <div className = "row">
@@ -73,8 +74,6 @@ const News = (props) => {
     )
 }
 
-export default News
-
 News.defaultProps = {
     country: 'in',
     pageSize: 5,
@@ -86,3 +85,5 @@ News.propTypes = {
     pageSize: PropTypes.number,
     category: PropTypes.string
 }
+
+export default News
