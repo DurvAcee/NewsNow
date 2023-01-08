@@ -1,9 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 // import loading from '../Assets/loading.gif'
 import './Spinner.css'
 
-export class Spinner extends Component {
-  render() {
+const Spinner = () => {
     return (
     // Using Local gif as an image
     //   <div className="text-center">
@@ -15,7 +14,6 @@ export class Spinner extends Component {
         <div className="cssload-speeding-wheel"></div>
         </div>
     )
-  }
 }
 
 export default Spinner
